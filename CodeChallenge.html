@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Code Challenge</title>
+    <link rel="stylesheet" href="https://bootswatch.com/5/cosmo/bootstrap.min.css">
+    <script src="https://kit.fontawesome.com/898343a8e4.js" crossorigin="anonymous"></script>
+    <style type="text/css">
+        * {
+            padding: 0;
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        
+        body {
+            height: 100vh;
+            background: linear-gradient(to right, rgb(19, 99, 223) 0%, rgb(19, 99, 223) 50%, rgb(238, 238, 238) 50%, rgb(238, 238, 238) 100%);
+        }
+        
+        .container {
+            position: relative;
+            top: 15vh;
+            left: 2vw;
+            height: 80vh;
+            width: 80vw;
+            border-radius: 10px;
+            background-color: rgba(255, 255, 255, 0.9);
+        }
+        
+        .left-panel {
+            position: absolute;
+            width: 40vw;
+        }
+        
+        .right-panel {
+            position: absolute;
+            left: 46vw;
+            top: 5vh;
+            width: 25vw;
+            height: 72vh;
+            background-color: rgba(179, 205, 224, 0.3);
+            border-radius: 5px;
+            /*text-align: center;*/
+        }
+        
+        h5 {
+            text-align: center;
+            padding: 15px;
+        }
+        
+        p {
+            text-align: center;
+        }
+        
+        form {
+            position: absolute;
+            width: 20vw;
+            left: 8%;
+            padding-bottom: 10px;
+        }
+        
+        .input {
+            width: 20vw;
+            height: 5vh;
+            border-radius: 5px;
+            border: 1px solid #aaa;
+            padding: 5px;
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            font-size: smaller;
+            box-sizing: border-box;
+            box-shadow: #aaa;
+        }
+        
+        .label1 {
+            font-size: smaller;
+            font-weight: lighter;
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        }
+        
+        .label2 {
+            font-size: x-small;
+            font-weight: bolder;
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        }
+        
+        label {
+            font-size: smaller;
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        }
+        
+        i {
+            padding: 10px;
+            height: 30px;
+            width: 30px;
+            size: medium;
+        }
+        
+        button {
+            height: 40px;
+            width: 20vw;
+            border-radius: 5px;
+        }
+        
+        .big_circle {
+            position: absolute;
+            width: 450px;
+            height: 450px;
+            left: 4%;
+            top: 25%;
+            border-radius: 360px;
+            background: #f8fcfbcc;
+        }
+        
+        .second_circle {
+            position: absolute;
+            width: 350px;
+            height: 350px;
+            left: 11%;
+            top: 11.5%;
+            border-radius: 360px;
+            background: #e8f6f798;
+        }
+        
+        .small_circle {
+            position: absolute;
+            width: 250px;
+            height: 250px;
+            left: 13%;
+            top: 15%;
+            border-radius: 360px;
+            background: rgb(19, 99, 223);
+        }
+        
+        .big_rect {
+            position: absolute;
+            width: 300px;
+            height: 190px;
+            left: -9%;
+            top: 12%;
+            border-radius: 10px;
+            background: rgba(248, 252, 251, 0.5);
+        }
+        
+        .small_rect {
+            position: absolute;
+            width: 278px;
+            height: 175px;
+            left: 4%;
+            top: 4.5%;
+            border-radius: 10px;
+            background: rgb(255, 255, 255);
+        }
+        
+        .counter-box1 {
+            position: absolute;
+            width: 130px;
+            height: 65px;
+            left: 50%;
+            top: 18%;
+            border-radius: 10px;
+            background: rgb(255, 255, 255);
+            box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+        }
+        
+        .counter-box2 {
+            position: absolute;
+            width: 130px;
+            height: 65px;
+            left: 50%;
+            top: 58%;
+            border-radius: 10px;
+            background: rgb(255, 255, 255);
+            /* box-shadow: rgba(0, 0, 0, 0.24) 0px 1px 1px; */
+            box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+        }
+        
+        .donut-chart {
+            position: relative;
+            left: 10%;
+            top: -5%;
+            display: flex;
+            height: 80px;
+            width: 80px;
+            background: transparent;
+            border-top: 10px solid rgb(141, 158, 255);
+            border-left: 10px solid rgb(19, 99, 223);
+            border-right: 10px solid rgb(141, 158, 255);
+            border-bottom: 10px solid rgb(244, 171, 196);
+            border-radius: 50%;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .buttons {
+            position: relative;
+            display: block;
+            top: 6%;
+            left: 3%;
+        }
+        
+        ul {
+            list-style-type: none;
+            position: relative;
+            top: 115%;
+            left: 0;
+            justify-content: center;
+            display: flex;
+            padding: 8px;
+        }
+        
+        li {
+            height: 6px;
+            width: 17%;
+            background-color: rgb(19, 99, 223);
+            border-radius: 3px;
+        }
+        
+        .li-innactive {
+            height: 6px;
+            width: 17%;
+            background-color: rgb(111, 127, 151);
+            border-radius: 3px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h5 style="position: absolute;   ">Clever</h5>
+        <div class="left-panel">
+            <div class="big_circle">
+                <div class="second_circle">
+                    <div class="small_circle">
+                        <div class="big_rect">
+                            <div class="small_rect">
+                                <legend style="font-size:15px ; padding:8px; margin-left:2%;"><b>Statistics</b>
+                                    <span style="font-size:10px ; padding:8px; margin-left:45%; color: rgb(19, 99, 223);">
+                                        <b>Show more</b></span></legend>
+                                <div class="donut-chart">
+                                    <h5><b>23</b></h5>
+                                </div>
+                                <div class="buttons">
+                                    <button type="button" style="
+                                    width: 13%; 
+                                    height: 11%; 
+                                    font-size: x-small; 
+                                    color: rgb(19, 99, 223);
+                                    border: none;
+                                    background-color: rgba(19, 101, 223, 0.3);
+                                    font-weight: bold;
+                                    border-radius: 3px;
+                                    padding: 3px;
+                                    ">
+                                        Super</button>
+                                    <button type="button" style="
+                                    width: 13%; 
+                                    height: 11%; 
+                                    font-size: x-small;
+                                    color: rgb(28, 153, 55);
+                                    border: none;
+                                    background-color: rgba(37, 180, 68, 0.3);
+                                    font-weight: bold;
+                                    border-radius: 3px;
+                                    padding: 3px;
+                                    ">Great</button>
+                                    <button type="button" style="
+                                    width: 15%; 
+                                    height: 11%; 
+                                    font-size: x-small;
+                                    color: rgb(252, 23, 111);
+                                    border: none;
+                                    background-color: rgba(252, 23, 111,0.3);
+                                    font-weight: bold;
+                                    border-radius: 3px;
+                                    padding: 3px;
+                                    ">Purpose</button>
+                                </div>
+                                <div class="counter-box1">
+                                    <span style="font-size:10px ; padding:3px; margin-left:3%; font-weight: bold; color: #7a7878;">Total Hours</span>
+                                    <p style="font-size:16px ; padding:3px; margin-left:-60%; margin-top:-8%; font-weight: bold;">1,240</p>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-clock-history" viewBox="0 0 16 16">
+                                        <path d="M8.515 1.019A7 7 0 0 0 8 1V0a8 8 0 0 1 .589.022l-.074.997zm2.004.45a7.003 7.003 0 0 0-.985-.299l.219-.976c.383.086.76.2 1.126.342l-.36.933zm1.37.71a7.01 7.01 0 0 0-.439-.27l.493-.87a8.025 8.025 0 0 1 .979.654l-.615.789a6.996 6.996 0 0 0-.418-.302zm1.834 1.79a6.99 6.99 0 0 0-.653-.796l.724-.69c.27.285.52.59.747.91l-.818.576zm.744 1.352a7.08 7.08 0 0 0-.214-.468l.893-.45a7.976 7.976 0 0 1 .45 1.088l-.95.313a7.023 7.023 0 0 0-.179-.483zm.53 2.507a6.991 6.991 0 0 0-.1-1.025l.985-.17c.067.386.106.778.116 1.17l-1 .025zm-.131 1.538c.033-.17.06-.339.081-.51l.993.123a7.957 7.957 0 0 1-.23 1.155l-.964-.267c.046-.165.086-.332.12-.501zm-.952 2.379c.184-.29.346-.594.486-.908l.914.405c-.16.36-.345.706-.555 1.038l-.845-.535zm-.964 1.205c.122-.122.239-.248.35-.378l.758.653a8.073 8.073 0 0 1-.401.432l-.707-.707z"/>
+                                        <path d="M8 1a7 7 0 1 0 4.95 11.95l.707.707A8.001 8.001 0 1 1 8 0v1z"/>
+                                        <path d="M7.5 3a.5.5 0 0 1 .5.5v5.21l3.248 1.856a.5.5 0 0 1-.496.868l-3.5-2A.5.5 0 0 1 7 9V3.5a.5.5 0 0 1 .5-.5z"/>
+                                      </svg>
+                                </div>
+                                <div class="counter-box2">
+                                    <span style="font-size:10px ; padding:3px; margin-left:3%; font-weight: bold; color: #7a7878;">Budget</span>
+                                    <p style="font-size:16px ; padding:3px; margin-left:-55%; margin-top:-8%; font-weight: bold;">$2,500</p>
+                                    <div style="
+                                    margin-left: 10px;
+                                    margin-top: -16px;
+                                    height: 24%; 
+                                    width: 24%;
+                                    font-size: x-small;
+                                    color: rgb(28, 153, 55);
+                                    border: none;
+                                    background-color: rgba(37, 180, 68, 0.3);
+                                    font-weight: bold;
+                                    border-radius: 3px;
+                                    padding: 1px;
+                                    ">+10% </div>
+                                    <div style="
+                                    margin-left: 43px;
+                                    margin-top: -16px;
+                                    font-size: x-small;
+                                    color: #7a7878;
+                                    ">since last month</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <p style="
+                        position:absolute;
+                        top:100%;
+                        left: 20%;
+                        font-size:small;
+                        font-weight:bold;
+                        ">Let's see what we have new, check it out! So<br> maybe write here something more.</p>
+                <ul>
+                    <li></li> &nbsp;
+                    <li class="li-innactive"></li>&nbsp;
+                    <li class="li-innactive"></li>
+                </ul>
+            </div>
+        </div>
+        <div class="right-panel">
+            <h5><b>Create your account</b></h5>
+            <p>it's free and easy</p>
+            <form action="">
+                <label class="label1">Your Name</label>
+                <br>
+                <input type="text" placeholder="Enter your name" class="input">
+                <br>
+                <label class="label1">E-mail or Phone number</label>
+                <br>
+                <input type="email" placeholder="Type your E-mail or phone number" class="input">
+                <br>
+                <label class="label1">Password</label>
+                <br>
+                <input type="password" placeholder="Password" class="input">
+                <small id="emailHelp" class="form-text text-muted">Must be 8 characters at least</small>
+                <br>
+                <fieldset class="form-group">
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked="">
+                        <label class="form-check-label" for="flexCheckChecked">
+					By creating an account means that you agree to the <b>Terms and Conditions and our Policy</b>
+				  </label>
+                    </div>
+                </fieldset>
+                <center>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <br>
+                    <plabel class="label2">Or do it via other accounts</label>
+                </center>
+                <center>
+                    <i class="fa-brands fa-google"></i>
+                    <i class="fa-brands fa-apple"></i>
+                    <i class="fa-brands fa-facebook-f"></i>
+                </center>
+            </form>
+            <i class="bi bi-chat-left-dots-fill"></i>
+            <i class="fa-solid fa-message-dots" style="position: absolute;  top:60vh; left:20vw; height:50px"></i>
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" style="position: absolute; top:98%; left:120%;" fill="currentColor" class="bi bi-chat-left-dots-fill" viewBox="0 0 16 16">
+                <path d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H4.414a1 1 0 0 0-.707.293L.854 15.146A.5.5 0 0 1 0 14.793V2zm5 4a1 1 0 1 0-2 0 1 1 0 0 0 2 0zm4 0a1 1 0 1 0-2 0 1 1 0 0 0 2 0zm3 1a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"/>
+              </svg>
+        </div>
+    </div>
+</body>
+
+</html>
